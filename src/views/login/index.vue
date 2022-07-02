@@ -21,6 +21,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import { login } from '@/api/login'
+
 const form = ref({
   username: '',
   password: ''
@@ -30,14 +32,14 @@ const rules = ref({
   username: [
     {
       required: true,
-      message: 'Please select Activity zone',
+      message: 'Please input username',
       trigger: 'blur'
     }
   ],
   password: [
     {
       required: true,
-      message: 'Please select Activity zone',
+      message: 'Please input password',
       trigger: 'blur'
     }
   ]
@@ -45,9 +47,9 @@ const rules = ref({
 
 const formRef = ref(null)
 const handleLogin = function () {
-  formRef.value.validate((valid) => {
+  formRef.value.validate(async (valid) => {
     if (valid) {
-      alert('submit')
+      await login(form.value)
     } else {
       console.log('error submit')
       return false
