@@ -10,7 +10,11 @@
       </el-form-item>
       <el-form-item prop="password">
         <svg-icon icon="password" class="svg-container"></svg-icon>
-        <el-input v-model="form.password" />
+        <el-input v-model="form.password" :type="passwordType" />
+        <svg-icon
+          :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
+          @click="changeType"
+        ></svg-icon>
       </el-form-item>
       <el-button type="primary" class="login-button" @click="handleLogin"
         >登录</el-button
@@ -49,12 +53,22 @@ const formRef = ref(null)
 const handleLogin = function () {
   formRef.value.validate(async (valid) => {
     if (valid) {
-      await login(form.value)
+      const res = await login(form.value)
+      console.log(res)
     } else {
       console.log('error submit')
       return false
     }
   })
+}
+
+const passwordType = ref('password')
+const changeType = () => {
+  if (passwordType.value === 'password') {
+    passwordType.value = 'text'
+  } else {
+    passwordType.value = 'password'
+  }
 }
 </script>
 
