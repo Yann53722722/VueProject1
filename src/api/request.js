@@ -6,6 +6,17 @@ const service = axios.create({
   timeout: 5000
 })
 
+// 为每个接口添加token
+service.interceptors.request.use(
+  (config) => {
+    config.headers.Authorization = localStorage.getItem('token')
+    return config
+  },
+  (error) => {
+    return Promise.reject(new Error(error))
+  }
+)
+
 service.interceptors.response.use(
   (response) => {
     const { data, meta } = response.data
