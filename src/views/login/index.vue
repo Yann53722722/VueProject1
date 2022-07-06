@@ -30,8 +30,8 @@ import { useStore } from 'vuex'
 const store = useStore()
 
 const form = ref({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '123456'
 })
 
 const rules = ref({
