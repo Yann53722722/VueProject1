@@ -9,6 +9,7 @@
     @close="handleClose"
     router
     unique-opened
+    :collapse="!$store.getters.siderType"
   >
     <el-sub-menu
       :index="item.id"
