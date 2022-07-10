@@ -3,6 +3,7 @@
     <Hamburger />
     <Breadcrumb />
     <div class="navbar-right">
+      <Driver />
       <Screenfull class="navbar-item" />
       <Lang class="navbar-item" />
       <Avatar class="navbar-item" />
@@ -16,6 +17,7 @@ import Breadcrumb from './components/breadcrumb.vue'
 import Avatar from './components/avatar.vue'
 import Lang from './components/lang.vue'
 import Screenfull from './components/screenfull.vue'
+import Driver from './components/driver'
 </script>
 
 <style lang="scss" scoped>
