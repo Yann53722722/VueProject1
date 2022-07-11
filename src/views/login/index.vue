@@ -57,7 +57,6 @@ const handleLogin = function () {
     if (valid) {
       store.dispatch('app/login', form.value)
     } else {
-      console.log('error submit')
       return false
     }
   })
