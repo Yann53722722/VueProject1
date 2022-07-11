@@ -25,6 +25,9 @@
         <template v-slot="{ row }" v-if="item.prop === 'mg_state'">
           <el-switch v-model="row.mg_state" />
         </template>
+        <template v-slot="{ row }" v-else-if="item.prop === 'create_time'">
+          {{ $filters.filterTimes(row.create_time) }}
+        </template>
         <template #default v-else-if="item.prop === 'action'">
           <el-button type="primary" size="small" :icon="Edit"></el-button>
           <el-button type="warning" size="small" :icon="Setting"></el-button>
