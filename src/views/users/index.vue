@@ -51,6 +51,7 @@
     v-model="dialogVisible"
     :dialogTitle="dialogTitle"
     v-if="dialogVisible"
+    @initUserList="initGetUsersList"
   />
 </template>
 
