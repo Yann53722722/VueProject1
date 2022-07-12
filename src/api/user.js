@@ -6,3 +6,16 @@ export const getUser = (params) => {
     params
   })
 }
+export const changeUserState = (uId, type) => {
+  return request({
+    url: `users/${uId}/state/${type}`,
+    method: 'put'
+  })
+}
+export const addUser = (data) => {
+  return request({
+    url: 'users',
+    method: 'post',
+    data
+  })
+}
